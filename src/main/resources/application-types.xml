@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="united_flights_json" format="json">
+      <types:example format="json" location="examples/united-flights-example.json"/>
+    </types:type>
+    <types:type name="flight" format="java">
+      <types:shape format="java" element="com.mulesoft.training.Flight"/>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#f5259b01-3e02-42d5-8537-e78136d96af6">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="united_flights_json"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#c5729348-a0b2-4f95-b025-bce307120260">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="flight[]"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#862b984b-4243-40e9-91d0-a20ba6032b86">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="flight[]"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#79c2b1c0-b63d-42cd-925c-7fd5bb3a62b4">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="flight[]"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
